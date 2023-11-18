@@ -33,13 +33,13 @@ class Trainer:
         self.optimizer = optim.Adam(self.model.parameters(), lr=lr)
 
     def set_datasets(self) -> None:
-        self.train_dataset = CatsAndDogsDataset(root, train=True)
-        self.val_dataset = CatsAndDogsDataset(root, train=False)
+        self.train_dataset = CatsAndDogsDataset(self.root, train=True)
+        self.val_dataset = CatsAndDogsDataset(self.root, train=False)
         
         self.train_loader = DataLoader(self.train_dataset, batch_size=self.batch_size, shuffle=True, num_workers=4)
         self.val_loader = DataLoader(self.val_dataset, batch_size=self.batch_size, shuffle=False, num_workers=4)
 
-    def train_step(self, train: bool, epoch=0) -> Tuple:
+    def train_step(self, train: bool, epoch: int=0) -> Tuple:
         if train:
             step_type = "Train"
             self.model.train()

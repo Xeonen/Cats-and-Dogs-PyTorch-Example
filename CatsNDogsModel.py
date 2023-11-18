@@ -57,7 +57,7 @@ class CatsNDogsModelTL(nn.Module):
         """
         Initializes a CatsNDogsModelTL object.
         """
-        super(CatsNDogsModelFC, self).__init__()
+        super(CatsNDogsModelTL, self).__init__()
         self.resnet18 = resnet18(pretrained=True)
         # Modify the last fully connected layer for binary classification
         in_features = self.resnet18.fc.in_features
